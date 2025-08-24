@@ -1,0 +1,141 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlowSkin - Adiós Acné</title>
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0; padding: 0;
+      background: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #6bc1ff, #4a90e2);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 900px;
+      margin: -30px auto 50px auto;
+      padding: 20px;
+    }
+
+    .tip-card, .comment-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .tip-card:hover, .comment-card:hover {
+      transform: translateY(-3px);
+    }
+
+    h2, h3 {
+      color: #4a90e2;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 15px 0;
+    }
+
+    .comment-box textarea {
+      width: 100%;
+      height: 100px;
+      padding: 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin-bottom: 10px;
+    }
+    .comment-box button {
+      padding: 12px 25px;
+      border: none;
+      background: #4a90e2;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .comment-box button:hover {
+      background: #357ab7;
+    }
+
+    .comments h3 {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>✨ GlowSkin ✨</h1>
+    <p>Adiós Acné - Comparte tips, tratamientos y experiencias con nuestra comunidad</p>
+  </header>
+
+  <main>
+    <!-- Sección de consejos -->
+    <div class="tip-card">
+      <h2>💡 Tip del día:</h2>
+      <p>Lava tu rostro 2 veces al día con un jabón suave y evita tocar tu cara con las manos sucias. Mantener una buena hidratación ayuda mucho a controlar el acné.</p>
+      <img src="https://i.ibb.co/G9gM3Yk/acne-skincare.jpg" alt="Cuidado de la piel">
+    </div>
+
+    <div class="tip-card">
+      <h2>🌿 Remedio natural:</h2>
+      <p>El gel de aloe vera puede ayudar a reducir inflamación y marcas del acné. Aplica una capa fina en la piel limpia y deja actuar 15-20 minutos.</p>
+      <img src="https://i.ibb.co/TM5ZzQd/aloe-vera-acne.jpg" alt="Aloe vera para acné">
+    </div>
+
+    <!-- Caja de comentarios -->
+    <div class="comment-box tip-card">
+      <h3>🗨️ Comparte tu experiencia</h3>
+      <textarea id="commentInput" placeholder="Escribe tu consejo o experiencia..."></textarea><br>
+      <button onclick="addComment()">Comentar</button>
+    </div>
+
+    <!-- Sección de comentarios -->
+    <div class="comments tip-card" id="comments">
+      <h3>Comentarios de la comunidad</h3>
+    </div>
+  </main>
+
+  <script>
+    function addComment() {
+      const input = document.getElementById("commentInput");
+      const commentsDiv = document.getElementById("comments");
+
+      if(input.value.trim() !== "") {
+        const newComment = document.createElement("div");
+        newComment.classList.add("comment-card");
+        newComment.textContent = input.value;
+        commentsDiv.appendChild(newComment);
+        input.value = "";
+        newComment.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  </script>
+</body>
+</html>
